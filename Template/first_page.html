@@ -26,141 +26,78 @@
       }
 
     </style>
-    {% load static %}
-</head>
-<body>
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script src="https://kit.fontawesome.com/274ee977b7.js" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-      <title>Document</title>
-      <style>
-        html {
-          position: relative;
-          min-height: 100%;
-        }
-        body {
-          margin-bottom: 0px; /* Height of the footer */
-        }
-        footer {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 0px; /* Height of the footer */
-          background-color: #f5f5f5;
-        }
-  
-      </style>
       {% load static %}
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#"><img src="{% static 'images/dimension.jfif' %}" style="height: 70px;width: 70px;"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">CRM</a>
+    </nav>
+
+
+    <div id="draggable" class="card" draggable="true" style="background-color:rgba(0,0,0,0.1) ;">
+        <div class="card-body">
+          <img src="{% static 'images/img1.avif' %}" width="50" height="80">
+         </div>
+    </div>
+    </div>
+    <div id="basket" class="basket">Basket</div>
+
+    <div class="container mt-3">
+      <div class="row">
+      
+        <div class="col-sm-3 mt-3">
+  
+        <div class="card">
+          <div class="card-body">
+           <img src="{% static 'images/img1.avif' %}" width="50" height="80">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+           <img src="{% static 'images/img2.avif' %}" width="50" height="80">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <img src="{% static 'images/img3.avif' %}" width="50" height="80">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <img src="{% static 'images/img4.avif' %}" width="50" height="80">
+          </div>
+        </div>
+
+      </div>
         
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'home_page' %}">Home</a>
-              </li>
-              {% if n1 == 1 %}
-  
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'u_profile' %}">My Profile</a>
-              </li>
-  
-              <li class="nav-item">
-                  <a class="nav-link" href="{% url 'u_cart' %}">Cart{% if countc != 0 %}
-                    <span id="notification-count" class="badge badge-dark">{{countc}}</span>
-                    {% endif %}</a>
-              </li>
-  
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'u_orders' %}">My Orders</a>
-              </li>
-  
-  
-              <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logoutop' %}">Logout</a>
-              </li>
-  
-              {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'login_page' %}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'freelancer_signup_page' %}">Freelancer Signup</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_signup_page' %}">User Signup </a>
-              </li>
-              
-              {% endif %}
-            </ul>
-          </div>
-      </nav>
-  
-      <h1 class="text-center" style="color: blue;">WELCOME TO DIMENSION</h1>
-      <img class="d-block w-100" src="{% static 'images/wp1.avif' %}" style="width: fit-content;">
-  
-  
-  
-      
-  
-      <div class="container mt-3">
-        <h3 class="text-center" style="text-decoration: underline;">SERVICES</h3>
-        <div class="row">
-          {% for s in s2 %}
-          <div class="col-sm-3 mt-3">
-    
-          <div class="card">
-            <div class="card-body">
-              <h5 class="text-center">{{s.service}}</h5>
-              <h6 class="text-center">Price : ₹{{s.total}}</h6>
-              <h6 class="text-center">{{s.fuser.role}} : {{s.fuser.user.first_name}} {{s.fuser.user.last_name}}</h6>
-              <div class="text-center"><a href="{% url 'add_to_cart' s.id %}" class="btn btn-success">Add to cart</a></div>
-            </div>
-          </div>
-        </div>
-          {% endfor %}
-        </div>
       </div>
-  
-  
-  
-      <div class="container mt-3 mb-3">
-        <h3 class="text-center" style="text-decoration: underline;">OUR TEAM</h3>
-        <div class="row">
-          {% for f in f2 %}
-          <div class="col-sm-3 mt-3">
-    
-          <div class="card">
-            <div class="card-body">
-              <div class="text-center">
-                <img src="{{f.image.url}}"  height="100" width="80">
-              </div>
-              <h5 class="text-center">{{f.user.first_name}}</h5>
-              <h6 class="text-center">{{f.role}}</h6>
-              <h6 class="text-center">{{f.type}}</h6>
-            </div>
-          </div>
-        </div>
-          {% endfor %}
-        </div>
-      </div>
+    </div>
+
+<script>
+document.getElementById('draggable').addEventListener('dragstart', function(e) {
+  e.dataTransfer.setData('text/plain', 'dragged');
+});
+
+document.getElementById('basket').addEventListener('dragover', function(e) {
+  e.preventDefault();
+});
+
+document.getElementById('basket').addEventListener('drop', function(e) {
+  e.preventDefault();
+  var data = e.dataTransfer.getData('text/plain');
+  if (data === 'dragged') {
+    window.location.href = 'second_page?item_id=1'; // Example item ID passed as query parameter
+  }
+});
+</script>
+
   
   
   
     
-      
   
   
       <footer class="bg-body-tertiary text-center">
