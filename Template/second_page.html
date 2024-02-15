@@ -16,6 +16,7 @@
       }
       body {
         margin-bottom: 0px; /* Height of the footer */
+        background-color: rgb(226, 220, 162);
       }
       footer {
         position: absolute;
@@ -25,22 +26,101 @@
         background-color: #f5f5f5;
       }
 
+
     </style>
+    
       {% load static %}
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">CRM</a>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="{% static 'images/crm_logo.png' %}" height="40" width="60"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" href="{% url 'first_page' %}">Home</a>
+            <a class="nav-item nav-link active" href="{% url 'second_page' %}">Archive</a>
+          </div>
+        </div>
+      </nav>
 
+      <h1 class="text-center">My Orders</h1>
 
-    <div class="basket">
-        {% if item_id %}
-          <div class="card">Item {{ item_id }}</div>
-        {% else %}
-          <p>No item selected</p>
-        {% endif %}
+    <div class="container mt-3">
+        {% for item_id in item_ids %}
+        <div class="row">
+            <div class="col-lm-4 m-5">
+                {% if item_id == '1' %}
+                <div id="card{{ item_id }}" class="card">
+                    
+                    <img src="{% static 'images/img1.avif' %}" width="150" height="180">
+                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                    
+
+                </div>
+                {% endif %}
+
+                {% if item_id == '2' %}
+                <div id="card{{ item_id }}" class="card">
+                    
+                    <img src="{% static 'images/img2.avif' %}" width="150" height="180">
+                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                    
+
+                </div>
+                {% endif %}
+
+                {% if item_id == '3' %}
+                <div id="card{{ item_id }}" class="card">
+                    
+                    <img src="{% static 'images/img3.avif' %}" width="150" height="180">
+                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                    
+
+                </div>
+                {% endif %}
+
+                {% if item_id == '4' %}
+                <div id="card{{ item_id }}" class="card">
+                    
+                    <img src="{% static 'images/img4.avif' %}" width="150" height="180">
+                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                    
+
+                </div>
+                {% endif %}
+
+                {% if item_id == '5' %}
+                <div id="card{{ item_id }}" class="card">
+                    
+                    <img src="{% static 'images/img5.jfif' %}" width="150" height="180">
+                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                    
+
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
       </div>
+
+
+
+    
+
+      <script>
+        document.querySelectorAll('.undoButton').forEach(button => {
+          button.addEventListener('click', function() {
+            var itemId = this.getAttribute('data-item-id');
+            var card = document.getElementById('card' + itemId);
+            var cardClone = card.cloneNode(true);
+            card.parentNode.removeChild(card);
+            document.querySelector('.container').appendChild(cardClone); // Add the item back to the first page
+            window.location.href = 'first_page';
+          });
+        });
+        </script>
       
   
   
@@ -118,7 +198,7 @@
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1);">
           © 2024 Copyright:
-          <a class="text-body" href="">DIMENSION.com</a>
+          <a class="text-body" href="">CRM.com</a>
         </div>
         <!-- Copyright -->
       </footer>

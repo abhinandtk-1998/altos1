@@ -1,0 +1,20 @@
+<div class="basket">
+    {% for item_id in item_ids %}
+      {% if item_id == '1' %}
+      <img src="{% static 'images/img1.avif' %}" width="50" height="80">
+      <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+      {% endif %}
+      {% if item_id == '2' %}
+      <img src="{% static 'images/img2.avif' %}" width="50" height="80">
+      <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+      {% endif %}
+      {% if item_id == '3' %}
+      <img src="{% static 'images/img3.avif' %}" width="50" height="80">
+      <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+      {% endif %}
+      {% if item_id == '4' %}
+      <img src="{% static 'images/img4.avif' %}" width="50" height="80">
+      <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+      {% endif %}
+    {% endfor %}
+  </div>
