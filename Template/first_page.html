@@ -21,31 +21,32 @@
         background-repeat: no-repeat;
         background-size: cover;
       }
-      footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 0px; /* Height of the footer */
-        background-color: #f5f5f5;
-      }
 
       #h11{
         text-shadow: 2px 2px 5px rebeccapurple;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        font-family: Copperplate, Papyrus, fantasy;
       }
 
       .enquiry-box {
+        width: 350px;
     position: fixed;
     top: 50%;
     right: 20px; /* Adjust as needed */
     transform: translateY(-50%);
     padding: 20px;
-    background-color: #fff;
+    background-color: rgb(233, 222, 169);
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: none; /* Initially hide the enquiry box */
     z-index: 9999; /* Set a high z-index value */
+}
+
+input[type="text"],input[type="email"], textarea {
+
+background-color : rgb(126, 118, 53);
+color: white; 
+
 }
 
 .enquiry-link {
@@ -62,6 +63,7 @@
     border-width: 8px;
     border-color: green;
 }
+
 
 .enquiry-link :hover{
   background-color: #0082ca;
@@ -110,6 +112,38 @@
 }
 
 
+.closed-basket {
+    background-image: url('{% static "images/basket_closed.jfif" %}');
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    /* Additional CSS styles for the closed basket */
+}
+
+.open-basket {
+    background-image: url('{% static "images/basket_open.jfif" %}');
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    /* Additional CSS styles for the open basket */
+}
+
+
+  @keyframes example {
+  0%   {color: black;}
+  25%  {color: brown;}
+  50%  {color: blue;}
+  100% {color: green;}
+}
+
+
+p {
+  color: black;
+  animation-name: example;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
 
 
     </style>
@@ -125,23 +159,32 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link active" href="{% url 'first_page' %}">Home</a>
           <a class="nav-item nav-link" href="{% url 'second_page' %}">Archive</a>
+          <a class="nav-item nav-link" href="{% url 'about_us' %}">About Us</a>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
         </div>
       </div>
     </nav>
 
     <h1 id="h11" class="text-center display-2 mt-3">Welcome to CRM</h1>
 
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="{% static 'images/img35.png' %}" alt="First slide" height="600">
+    <div class="container mt-5 p-3" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2  style="font-family: Copperplate, Papyrus, fantasy;">About Us</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo. Curabitur in purus ut arcu malesuada vulputate vel ut mi. Fusce eget nisi vel arcu feugiat lacinia nec at libero.</p>
+        </div>
+        <div class="col-lg-6">
+          <img src="{% static 'images/cimg50.jpg' %}" class="img-fluid" alt="About Us Image">
         </div>
       </div>
     </div>
 
     <a href="#" id="enquiry-link" class="enquiry-link">Contact Us</a>
 
-<div id="enquiry-box" class="enquiry-box">
+<div id="enquiry-box" class="enquiry-box" style="background-color: rgb(233, 222, 169)">
     <button id="close-enquiry-box" style="color: #d30c0c;">x</button>
     <h2>Contact Us</h2>
     <form>
@@ -155,58 +198,77 @@
     </form>
 </div>
 
-<div class="container mt-5">
+
+
+
+<div class="container mt-5 p-3" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
   <div class="row">
     <div class="col-lg-6">
-      <h2>About Us</h2>
+      <h1 class="text-center mt-3" style="font-family: Copperplate, Papyrus, fantasy;">What is CRM</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo. Curabitur in purus ut arcu malesuada vulputate vel ut mi. Fusce eget nisi vel arcu feugiat lacinia nec at libero.</p>
     </div>
     <div class="col-lg-6">
-      <img src="{% static 'images/cimg50.jpg' %}" class="img-fluid" alt="About Us Image">
+      <iframe width="480" height="270" src="https://www.youtube.com/embed/hnEQq7kNFWo?si=N-US380xCynQXvuB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 </div>
 
 
 
-    <h1 class="text-center mt-3">Our Services</h1>
-    <div class="container mt-3">
+
+    
+    <div class="container mt-3 mb-3" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+      <h1 class="text-center mt-3" style="font-family: Copperplate, Papyrus, fantasy;">Our Services</h1>
       <div class="row">
         
         
-        <div class="col-lm-4 m-3">
-          <div id="draggable1" class="card" draggable="true">
-            <img src="{% static 'images/img1.avif' %}" width="150" height="180">
-            <h5 class="text-center">Lamborghini</h5>
+        <div class="col-sm-3 mb-3">
+          <div id="draggable1" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;" >
+            <div class="card-body">
+              <h5 class="text-center">CRM 1</h5>
+              <h6 class="text-center">Price : ₹5000</h6>
+              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+            </div>
           </div>
         </div>
 
-        <div class="col-lm-4 m-3">
-          <div id="draggable2" class="card" draggable="true">
-            <img src="{% static 'images/img2.avif' %}" width="150" height="180">
-            <h5 class="text-center">Mercedes benz</h5>
+        <div class="col-sm-3 mb-3">
+          <div id="draggable2" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="text-center">CRM 2</h5>
+              <h6 class="text-center">Price : ₹6000</h6>
+              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+            </div>
           </div>
         </div>
 
-        <div class="col-lm-4 m-3">
-          <div id="draggable3" class="card" draggable="true">
-            <img src="{% static 'images/img3.avif' %}" width="150" height="180">
-            <h5 class="text-center">Audi</h5>
-            <h1>
+        <div class="col-sm-3 mb-3">
+          <div id="draggable3" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="text-center">CRM 3</h5>
+              <h6 class="text-center">Price : ₹7000</h6>
+              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+            </div>
           </div>
         </div>
 
-        <div class="col-lm-4 m-3">
-          <div id="draggable4" class="card" draggable="true">
-            <img src="{% static 'images/img4.avif' %}" width="150" height="180">
-            <h5 class="text-center">Volvo</h5>
+        <div class="col-sm-3 mb-3">
+          <div id="draggable4" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="text-center">CRM 4</h5>
+              <h6 class="text-center">Price : ₹8000</h6>
+              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+            </div>
           </div>
         </div>
 
-        <div class="col-lm-4 m-3">
-          <div id="draggable5" class="card" draggable="true">
-            <img src="{% static 'images/img5.jfif' %}" width="150" height="180">
-            <h5 class="text-center">BMW</h5>
+        <div class="col-sm-3 mb-3">
+          <div id="draggable5" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="text-center">CRM 5</h5>
+              <h6 class="text-center">Price : ₹9000</h6>
+              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+            </div>
           </div>
         </div>
 
@@ -214,9 +276,14 @@
       </div>
     </div>
 
-    <div class="container mt-3" style="background-color: #f5f5f5;">
-        <div id="basket" class="basket text-center mb-5" style="color: #55acee;"><h3>Drop here to Order</h3></div>
+    <div class="container mt-3 mb-3" style="background-color: #f5f5f5;width: 150px;height: 180px;">
+      <div id="basket" class="basket closed-basket" droppable="true"></div>
     </div>
+
+
+
+    
+
 
 
 
@@ -224,32 +291,40 @@
 
     <script>
       document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('dragstart', function(e) {
-          e.dataTransfer.setData('text/plain', card.id);
-        });
-      });
-      
-      document.getElementById('basket').addEventListener('dragover', function(e) {
-        e.preventDefault();
-      });
-      
-      document.getElementById('basket').addEventListener('drop', function(e) {
-        e.preventDefault();
-        var itemIds = [];
-        var cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-          if (card.getAttribute('draggable') === 'false') {
-            itemIds.push(card.id.replace('draggable', ''));
-          }
-        });
-        var data = e.dataTransfer.getData('text/plain');
-        if (data) {
-          var card = document.getElementById(data);
-          card.parentNode.removeChild(card); // Remove the dragged card from the first page
-          itemIds.push(data.replace('draggable', ''));
-        }
-        window.location.href = 'second_page?item_ids=' + itemIds.join(',');
-      });
+  card.addEventListener('dragstart', function(e) {
+    e.dataTransfer.setData('text/plain', card.id);
+    document.getElementById('basket').classList.remove('closed-basket');
+    document.getElementById('basket').classList.add('open-basket');
+  });
+});
+
+document.getElementById('basket').addEventListener('dragover', function(e) {
+  e.preventDefault();
+});
+
+document.getElementById('basket').addEventListener('drop', function(e) {
+  e.preventDefault();
+  var itemIds = [];
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    if (card.getAttribute('draggable') === 'false') {
+      itemIds.push(card.id.replace('draggable', ''));
+    }
+  });
+  var data = e.dataTransfer.getData('text/plain');
+  if (data) {
+    var card = document.getElementById(data);
+    card.parentNode.removeChild(card); // Remove the dragged card from the first page
+    itemIds.push(data.replace('draggable', ''));
+  }
+  window.location.href = 'second_page?item_ids=' + itemIds.join(',');
+});
+
+
+
+
+
+
 
 
 

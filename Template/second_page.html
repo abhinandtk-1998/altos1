@@ -41,66 +41,115 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="{% url 'first_page' %}">Home</a>
             <a class="nav-item nav-link active" href="{% url 'second_page' %}">Archive</a>
+            <a class="nav-item nav-link" href="{% url 'about_us' %}">About Us</a>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
           </div>
         </div>
       </nav>
 
-      <h1 class="text-center">My Orders</h1>
+      
 
-    <div class="container mt-3">
+      
+
+    <div class="container mt-3 mb-3" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+      <h1 class="text-center" style="font-family: Copperplate, Papyrus, fantasy;">My Orders</h1>
         {% for item_id in item_ids %}
         <div class="row">
-            <div class="col-lm-4 m-5">
+            
                 {% if item_id == '1' %}
-                <div id="card{{ item_id }}" class="card">
+                <div class="col-sm-3 mt-3">
+                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;" >
                     
-                    <img src="{% static 'images/img1.avif' %}" width="150" height="180">
-                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                  <div class="card-body">
+                    <h5 class="text-center">CRM 1</h5>
+                    <h6 class="text-center">Price : ₹5000</h6>
+                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
+                    <div class="text-center">
+                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                    </div>
+                    
+                  </div>
+                    
                     
 
+                </div>
                 </div>
                 {% endif %}
 
                 {% if item_id == '2' %}
-                <div id="card{{ item_id }}" class="card">
+                <div class="col-sm-3 mt-3">
+                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
-                    <img src="{% static 'images/img2.avif' %}" width="150" height="180">
-                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                  <div class="card-body">
+                    <h5 class="text-center">CRM 2</h5>
+                    <h6 class="text-center">Price : ₹6000</h6>
+                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
+                    <div class="text-center">
+                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                    </div>
+                  </div>
                     
 
+                </div>
                 </div>
                 {% endif %}
 
                 {% if item_id == '3' %}
-                <div id="card{{ item_id }}" class="card">
+                <div class="col-sm-3 mt-3">
+                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
-                    <img src="{% static 'images/img3.avif' %}" width="150" height="180">
-                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                  <div class="card-body">
+                    <h5 class="text-center">CRM 3</h5>
+                    <h6 class="text-center">Price : ₹7000</h6>
+                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
+                    <div class="text-center">
+                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                    </div>
+                  </div>
                     
 
+                </div>
                 </div>
                 {% endif %}
 
                 {% if item_id == '4' %}
-                <div id="card{{ item_id }}" class="card">
+                <div class="col-sm-3 mt-3">
+                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
-                    <img src="{% static 'images/img4.avif' %}" width="150" height="180">
-                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                  <div class="card-body">
+                    <h5 class="text-center">CRM 4</h5>
+                    <h6 class="text-center">Price : ₹8000</h6>
+                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
+                    <div class="text-center">
+                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                    </div>
+                  </div>
                     
 
+                </div>
                 </div>
                 {% endif %}
 
                 {% if item_id == '5' %}
-                <div id="card{{ item_id }}" class="card">
+                <div class="col-sm-3 mt-3"></div>
+                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
-                    <img src="{% static 'images/img5.jfif' %}" width="150" height="180">
-                    <button class="undoButton" data-item-id="{{ item_id }}">Undo</button>
+                  <div class="card-body">
+                    <h5 class="text-center">CRM 5</h5>
+                    <h6 class="text-center">Price : ₹9000</h6>
+                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
+                    <div class="text-center">
+                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                    </div>
+                  </div>
                     
 
                 </div>
+                </div>
                 {% endif %}
-            </div>
         </div>
         {% endfor %}
       </div>

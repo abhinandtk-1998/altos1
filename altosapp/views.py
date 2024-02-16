@@ -9,3 +9,6 @@ def second_page(request):
     item_ids = request.GET.get('item_ids', '').split(',')
     return render(request, 'second_page.html', {'item_ids': item_ids})
 
+def about_us(request):
+    return render(request, 'about_us.html')
+
