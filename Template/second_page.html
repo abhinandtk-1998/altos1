@@ -39,9 +39,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="{% url 'first_page' %}">Home</a>
-            <a class="nav-item nav-link active" href="{% url 'second_page' %}">Archive</a>
-            <a class="nav-item nav-link" href="{% url 'about_us' %}">About Us</a>
+            <a class="nav-item nav-link" href="#" id="linkToFirstPage">Home</a>
+            <a class="nav-item nav-link active" href="">Archive</a>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -56,17 +55,15 @@
 
     <div class="container mt-3 mb-3" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
       <h1 class="text-center" style="font-family: Copperplate, Papyrus, fantasy;">My Orders</h1>
-        {% for item_id in item_ids %}
         <div class="row">
             
-                {% if item_id == '1' %}
+                {% if '1' in item_ids %}
                 <div class="col-sm-3 mt-3">
                 <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;" >
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 1</h5>
                     <h6 class="text-center">Price : ₹5000</h6>
-                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
                     <div class="text-center">
                       <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
@@ -79,14 +76,13 @@
                 </div>
                 {% endif %}
 
-                {% if item_id == '2' %}
+                {% if '2' in item_ids %}
                 <div class="col-sm-3 mt-3">
                 <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 2</h5>
                     <h6 class="text-center">Price : ₹6000</h6>
-                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
                     <div class="text-center">
                       <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
@@ -97,14 +93,13 @@
                 </div>
                 {% endif %}
 
-                {% if item_id == '3' %}
+                {% if '3' in item_ids %}
                 <div class="col-sm-3 mt-3">
                 <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 3</h5>
                     <h6 class="text-center">Price : ₹7000</h6>
-                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
                     <div class="text-center">
                       <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
@@ -115,14 +110,13 @@
                 </div>
                 {% endif %}
 
-                {% if item_id == '4' %}
+                {% if '4' in item_ids %}
                 <div class="col-sm-3 mt-3">
                 <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 4</h5>
                     <h6 class="text-center">Price : ₹8000</h6>
-                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
                     <div class="text-center">
                       <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
@@ -133,14 +127,13 @@
                 </div>
                 {% endif %}
 
-                {% if item_id == '5' %}
+                {% if '5' in item_ids %}
                 <div class="col-sm-3 mt-3"></div>
                 <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 5</h5>
                     <h6 class="text-center">Price : ₹9000</h6>
-                    <h6 class="text-center">Drag an Drop in basket to Order</h6>
                     <div class="text-center">
                       <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
@@ -151,7 +144,6 @@
                 </div>
                 {% endif %}
         </div>
-        {% endfor %}
       </div>
 
 
@@ -159,17 +151,29 @@
     
 
       <script>
-        document.querySelectorAll('.undoButton').forEach(button => {
+
+      document.querySelectorAll('.undoButton').forEach(button => {
           button.addEventListener('click', function() {
-            var itemId = this.getAttribute('data-item-id');
-            var card = document.getElementById('card' + itemId);
-            var cardClone = card.cloneNode(true);
-            card.parentNode.removeChild(card);
-            document.querySelector('.container').appendChild(cardClone); // Add the item back to the first page
-            window.location.href = 'first_page';
+              var itemId = this.getAttribute('data-item-id');
+              var card = document.getElementById('card' + itemId);
+              card.parentNode.removeChild(card); // Remove the corresponding card from the second page
+              itemIds = itemIds.filter(id => id !== itemId); // Remove the item ID from the array
           });
-        });
-        </script>
+      });
+
+      document.getElementById("linkToFirstPage").addEventListener("click", function() {
+    var itemIdsParam = itemIds.join(','); // Convert the array to a comma-separated string
+    console.log('Item IDs Param:', itemIdsParam); // Check the value in the console
+    if (itemIdsParam) {
+        window.location.href = 'first_page?item_idf=' + itemIdsParam; // Pass the item IDs as a query parameter
+    } else {
+        window.location.href = 'first_page';
+    }
+});
+
+
+        
+      </script>
       
   
   
@@ -178,7 +182,7 @@
   
   
       <footer class="bg-body-tertiary text-center">
-        <div class="p-4 pb-0" style="background-color: antiquewhite;">
+        <div class="p-4 pb-0" style="background-color: rgba(0, 0, 0, 0.2);">
           <!-- Section: Social media -->
           <section class="mb-4">
             <!-- Facebook -->

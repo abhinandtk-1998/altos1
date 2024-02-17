@@ -95,7 +95,7 @@ color: white;
 
 .enquiry-box button {
     padding: 8px 20px;
-    background-color: #007bff;
+    background-color: rgb(199, 182, 33);
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -133,7 +133,7 @@ color: white;
   0%   {color: black;}
   25%  {color: brown;}
   50%  {color: blue;}
-  100% {color: green;}
+  100% {color: red;}
 }
 
 
@@ -143,6 +143,20 @@ p {
   animation-duration: 8s;
   animation-iteration-count: infinite;
 }
+
+.card{
+  color: black;
+  animation-name: example;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.youtube-video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+
 
 
 
@@ -157,9 +171,8 @@ p {
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="{% url 'first_page' %}">Home</a>
-          <a class="nav-item nav-link" href="{% url 'second_page' %}">Archive</a>
-          <a class="nav-item nav-link" href="{% url 'about_us' %}">About Us</a>
+          <a class="nav-item nav-link active" href="">Home</a>
+          <a class="nav-item nav-link" href="#" id="linkToNextPage">Archieve</a>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -174,7 +187,7 @@ p {
       <div class="row">
         <div class="col-lg-6">
           <h2  style="font-family: Copperplate, Papyrus, fantasy;">About Us</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo. Curabitur in purus ut arcu malesuada vulputate vel ut mi. Fusce eget nisi vel arcu feugiat lacinia nec at libero.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo. Curabitur in purus ut arcu malesuada vulputate vel ut mi. Fusce eget nisi vel arcu feugiat lacinia nec at libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo. Curabitur in purus ut arcu malesuada vulputate vel ut mi. Fusce eget nisi vel arcu feugiat lacinia nec at libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo. Curabitur in purus ut arcu malesuada vulputate vel ut mi. Fusce eget nisi vel arcu feugiat lacinia nec at libero.</p>
         </div>
         <div class="col-lg-6">
           <img src="{% static 'images/cimg50.jpg' %}" class="img-fluid" alt="About Us Image">
@@ -182,10 +195,10 @@ p {
       </div>
     </div>
 
-    <a href="#" id="enquiry-link" class="enquiry-link">Contact Us</a>
+    <a href="#" id="enquiry-link" class="enquiry-link" style="border-radius: 10px;">Contact Us</a>
 
 <div id="enquiry-box" class="enquiry-box" style="background-color: rgb(233, 222, 169)">
-    <button id="close-enquiry-box" style="color: #d30c0c;">x</button>
+    <button id="close-enquiry-box" style="color: white; background-color: red;">x</button>
     <h2>Contact Us</h2>
     <form>
         <label for="name">Name:</label>
@@ -208,7 +221,7 @@ p {
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo. Curabitur in purus ut arcu malesuada vulputate vel ut mi. Fusce eget nisi vel arcu feugiat lacinia nec at libero.</p>
     </div>
     <div class="col-lg-6">
-      <iframe width="480" height="270" src="https://www.youtube.com/embed/hnEQq7kNFWo?si=N-US380xCynQXvuB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe class="youtube-video" width="480" height="270" src="https://www.youtube.com/embed/hnEQq7kNFWo?si=N-US380xCynQXvuB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -217,11 +230,11 @@ p {
 
 
     
-    <div class="container mt-3 mb-3" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+     <div class="container mt-3 mb-3 pt-1" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
       <h1 class="text-center mt-3" style="font-family: Copperplate, Papyrus, fantasy;">Our Services</h1>
       <div class="row">
         
-        
+        {% if '1' not in item_idf %}
         <div class="col-sm-3 mb-3">
           <div id="draggable1" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;" >
             <div class="card-body">
@@ -231,7 +244,10 @@ p {
             </div>
           </div>
         </div>
+        {% endif %}
 
+
+        {% if '2' not in item_idf %}
         <div class="col-sm-3 mb-3">
           <div id="draggable2" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
             <div class="card-body">
@@ -241,7 +257,9 @@ p {
             </div>
           </div>
         </div>
+        {% endif %}
 
+        {% if '2' not in item_idf %}
         <div class="col-sm-3 mb-3">
           <div id="draggable3" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
             <div class="card-body">
@@ -251,7 +269,10 @@ p {
             </div>
           </div>
         </div>
+        {% endif %}
 
+
+        {% if '2' not in item_idf %}
         <div class="col-sm-3 mb-3">
           <div id="draggable4" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
             <div class="card-body">
@@ -261,7 +282,11 @@ p {
             </div>
           </div>
         </div>
+        {% endif %}
 
+
+
+        {% if '2' not in item_idf %}
         <div class="col-sm-3 mb-3">
           <div id="draggable5" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
             <div class="card-body">
@@ -271,6 +296,7 @@ p {
             </div>
           </div>
         </div>
+        {% endif %}
 
 
       </div>
@@ -290,35 +316,52 @@ p {
 
 
     <script>
-      document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('dragstart', function(e) {
-    e.dataTransfer.setData('text/plain', card.id);
-    document.getElementById('basket').classList.remove('closed-basket');
-    document.getElementById('basket').classList.add('open-basket');
-  });
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('dragstart', function(e) {
+        e.dataTransfer.setData('text/plain', card.id);
+        document.getElementById('basket').classList.remove('closed-basket');
+        document.getElementById('basket').classList.add('open-basket');
+    });
 });
 
 document.getElementById('basket').addEventListener('dragover', function(e) {
-  e.preventDefault();
+    e.preventDefault();
 });
 
+var itemIds = []; // Initialize an array to store item IDs
+
 document.getElementById('basket').addEventListener('drop', function(e) {
-  e.preventDefault();
-  var itemIds = [];
-  var cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    if (card.getAttribute('draggable') === 'false') {
-      itemIds.push(card.id.replace('draggable', ''));
+    e.preventDefault();
+    document.getElementById('basket').classList.remove('open-basket');
+    document.getElementById('basket').classList.add('closed-basket');
+    var data = e.dataTransfer.getData('text/plain');
+    if (data) {
+        var card = document.getElementById(data);
+        card.parentNode.removeChild(card); // Remove the dragged card from the first page
+        itemIds.push(data.replace('draggable', '')); // Store the item ID
     }
-  });
-  var data = e.dataTransfer.getData('text/plain');
-  if (data) {
-    var card = document.getElementById(data);
-    card.parentNode.removeChild(card); // Remove the dragged card from the first page
-    itemIds.push(data.replace('draggable', ''));
-  }
-  window.location.href = 'second_page?item_ids=' + itemIds.join(',');
 });
+
+document.getElementById("linkToNextPage").addEventListener("click", function() {
+    var itemIdsParam = itemIds.join(','); // Convert the array to a comma-separated string
+    if (itemIdsParam) {
+        window.location.href = 'second_page?item_ids=' + itemIdsParam; // Pass the item IDs as a query parameter
+    } else {
+        window.location.href = 'second_page';
+    }
+});
+
 
 
 
@@ -353,7 +396,7 @@ document.getElementById('basket').addEventListener('drop', function(e) {
   
   
       <footer class="bg-body-tertiary text-center">
-        <div class="p-4 pb-0" style="background-color: antiquewhite;">
+        <div class="p-4 pb-0" style="background-color:rgba(0, 0, 0, 0.2)">
           <!-- Section: Social media -->
           <section class="mb-4">
             <!-- Facebook -->
