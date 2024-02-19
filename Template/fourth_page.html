@@ -396,3 +396,38 @@ document.querySelectorAll('.undoButton').forEach(button => {
     window.location.href = 'first_page';
   });
 });
+
+
+
+if (Array.isArray(item_ids)){
+  item_ids = item_ids;
+}else{
+  item_ids = item_ids.split(",")
+}
+
+
+
+
+
+      item_ids = item_ids.split(',');
+
+      item_ids = item_ids.join(',');
+
+
+
+      document.getElementById("linkToFirstPage").addEventListener("click", function() {
+        var itemIdsParam = item_ids.join(',') // Convert the array to a comma-separated string
+        console.log('Item IDs Param:', itemIdsParam); // Check the value in the console
+        if (itemIdsParam) {
+            window.location.href = 'first_page?item_idf=' + itemIdsParam; // Pass the item IDs as a query parameter
+        } else {
+            window.location.href = 'first_page';
+        }
+    });
+
+    item_ids = item_ids.filter(id => id !== itemId); // Remove the item ID from the array
+
+
+
+
+

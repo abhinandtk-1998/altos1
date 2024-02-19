@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Document</title>
+    {% load static %}
     <style>
       html {
         position: relative;
@@ -39,8 +40,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="#" id="linkToFirstPage">Home</a>
-            <a class="nav-item nav-link active" href="">Archive</a>
+            <a href="#" id="linkToFirstPage" class="nav-item nav-link" onclick="redirectToFirstPage()">Home</a>
+            <a class="nav-item nav-link active" href="">Orders</a>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -53,19 +54,19 @@
 
       
 
-    <div class="container mt-3 mb-3" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+    <div class="container mt-3 mb-3 p-3" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
       <h1 class="text-center" style="font-family: Copperplate, Papyrus, fantasy;">My Orders</h1>
         <div class="row">
             
                 {% if '1' in item_ids %}
                 <div class="col-sm-3 mt-3">
-                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;" >
+                <div id="card{{ '1' }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;" >
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 1</h5>
                     <h6 class="text-center">Price : ₹5000</h6>
                     <div class="text-center">
-                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                      <button class="undoButton btn" data-item-id="{{ '1' }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
                     
                   </div>
@@ -78,13 +79,13 @@
 
                 {% if '2' in item_ids %}
                 <div class="col-sm-3 mt-3">
-                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+                <div id="card{{ '2' }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 2</h5>
                     <h6 class="text-center">Price : ₹6000</h6>
                     <div class="text-center">
-                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                      <button class="undoButton btn" data-item-id="{{ '2' }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
                   </div>
                     
@@ -95,13 +96,13 @@
 
                 {% if '3' in item_ids %}
                 <div class="col-sm-3 mt-3">
-                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+                <div id="card{{ '3' }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 3</h5>
                     <h6 class="text-center">Price : ₹7000</h6>
                     <div class="text-center">
-                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                      <button class="undoButton btn" data-item-id="{{ '3' }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
                   </div>
                     
@@ -112,13 +113,13 @@
 
                 {% if '4' in item_ids %}
                 <div class="col-sm-3 mt-3">
-                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+                <div id="card{{ '4' }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
                     
                   <div class="card-body">
                     <h5 class="text-center">CRM 4</h5>
                     <h6 class="text-center">Price : ₹8000</h6>
                     <div class="text-center">
-                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
+                      <button class="undoButton btn" data-item-id="{{ '4' }}" style="background-color: #dd4b39;">Cancel</button>
                     </div>
                   </div>
                     
@@ -127,22 +128,7 @@
                 </div>
                 {% endif %}
 
-                {% if '5' in item_ids %}
-                <div class="col-sm-3 mt-3"></div>
-                <div id="card{{ item_id }}" class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
-                    
-                  <div class="card-body">
-                    <h5 class="text-center">CRM 5</h5>
-                    <h6 class="text-center">Price : ₹9000</h6>
-                    <div class="text-center">
-                      <button class="undoButton btn" data-item-id="{{ item_id }}" style="background-color: #dd4b39;">Cancel</button>
-                    </div>
-                  </div>
-                    
 
-                </div>
-                </div>
-                {% endif %}
         </div>
       </div>
 
@@ -150,30 +136,56 @@
 
     
 
-      <script>
+  <script>
 
-      document.querySelectorAll('.undoButton').forEach(button => {
-          button.addEventListener('click', function() {
-              var itemId = this.getAttribute('data-item-id');
-              var card = document.getElementById('card' + itemId);
-              card.parentNode.removeChild(card); // Remove the corresponding card from the second page
-              itemIds = itemIds.filter(id => id !== itemId); // Remove the item ID from the array
-          });
-      });
 
-      document.getElementById("linkToFirstPage").addEventListener("click", function() {
-    var itemIdsParam = itemIds.join(','); // Convert the array to a comma-separated string
-    console.log('Item IDs Param:', itemIdsParam); // Check the value in the console
-    if (itemIdsParam) {
-        window.location.href = 'first_page?item_idf=' + itemIdsParam; // Pass the item IDs as a query parameter
-    } else {
-        window.location.href = 'first_page';
+
+document.querySelectorAll('.undoButton').forEach(button => {
+        button.addEventListener('click', function() {
+            var itemId = this.getAttribute('data-item-id');
+            console.log(itemId)
+            var card = document.getElementById('card' + itemId);
+            card.parentNode.removeChild(card); // Remove the corresponding card from the second page
+            // Update item_ids array
+
+            // Convert item_ids to an array
+            var itemIdsArray = item_ids.split(',');
+
+            // Filter out the item with the specified itemId
+            var updatedItemIdsArray = itemIdsArray.filter(function(id) {
+                return id !== itemId;
+            });
+
+            // Convert the filtered array back to a string
+            item_ids = updatedItemIdsArray.join(',');
+            console.log(item_ids); // Optional: Log the updated item_ids array
+        });
+    });
+
+
+     // Function to retrieve card IDs from the second page and redirect to the first page with updated item_ids
+     function redirectToFirstPage() {
+        var cardIds = [];
+        document.querySelectorAll('.card').forEach(card => {
+            var cardId = card.id.replace('card', '');
+            cardIds.push(cardId);
+        });
+        var linkToFirstPage = '{% url "first_page" %}?item_idf=' + cardIds.join(',');
+        window.location.href = linkToFirstPage; // Redirect to the first page with card IDs
     }
-});
+
+    // Event listener for the link to the first page
+    document.getElementById("linkToFirstPage").addEventListener("click", function(event) {
+        event.preventDefault();
+        redirectToFirstPage();
+    });
+
+
+      
 
 
         
-      </script>
+  </script>
       
   
   
@@ -257,11 +269,7 @@
       </footer>
   
       
-  
-      
-            
-  </body>
-  </html>
+
   
 
     

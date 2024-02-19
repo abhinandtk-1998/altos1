@@ -172,7 +172,7 @@ p {
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link active" href="">Home</a>
-          <a class="nav-item nav-link" href="#" id="linkToNextPage">Archieve</a>
+          <a class="nav-item nav-link" href="#" id="linkToNextPage">Orders</a>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -240,11 +240,12 @@ p {
             <div class="card-body">
               <h5 class="text-center">CRM 1</h5>
               <h6 class="text-center">Price : ₹5000</h6>
-              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+              <h6 class="text-center">Drag and Drop in basket to Order</h6>
             </div>
           </div>
         </div>
         {% endif %}
+        
 
 
         {% if '2' not in item_idf %}
@@ -253,50 +254,38 @@ p {
             <div class="card-body">
               <h5 class="text-center">CRM 2</h5>
               <h6 class="text-center">Price : ₹6000</h6>
-              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+              <h6 class="text-center">Drag and Drop in basket to Order</h6>
             </div>
           </div>
         </div>
         {% endif %}
 
-        {% if '2' not in item_idf %}
+        {% if '3' not in item_idf %}
         <div class="col-sm-3 mb-3">
           <div id="draggable3" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
             <div class="card-body">
               <h5 class="text-center">CRM 3</h5>
               <h6 class="text-center">Price : ₹7000</h6>
-              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+              <h6 class="text-center">Drag and Drop in basket to Order</h6>
             </div>
           </div>
         </div>
         {% endif %}
 
 
-        {% if '2' not in item_idf %}
+        {% if '4' not in item_idf %}
         <div class="col-sm-3 mb-3">
           <div id="draggable4" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
             <div class="card-body">
               <h5 class="text-center">CRM 4</h5>
               <h6 class="text-center">Price : ₹8000</h6>
-              <h6 class="text-center">Drag an Drop in basket to Order</h6>
+              <h6 class="text-center">Drag and Drop in basket to Order</h6>
             </div>
           </div>
         </div>
         {% endif %}
 
 
-
-        {% if '2' not in item_idf %}
-        <div class="col-sm-3 mb-3">
-          <div id="draggable5" class="card" draggable="true" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
-            <div class="card-body">
-              <h5 class="text-center">CRM 5</h5>
-              <h6 class="text-center">Price : ₹9000</h6>
-              <h6 class="text-center">Drag an Drop in basket to Order</h6>
-            </div>
-          </div>
-        </div>
-        {% endif %}
 
 
       </div>
@@ -361,6 +350,23 @@ document.getElementById("linkToNextPage").addEventListener("click", function() {
         window.location.href = 'second_page';
     }
 });
+
+
+function redirectToSecondPage() {
+        var cardIds = [];
+        document.querySelectorAll('.card').forEach(card => {
+            var cardId = card.id.replace('card', '');
+            cardIds.push(cardId);
+        });
+        var linkToFirstPage = '{% url "first_page" %}?item_idf=' + cardIds.join(',');
+        window.location.href = linkToFirstPage; // Redirect to the first page with card IDs
+    }
+
+    // Event listener for the link to the first page
+    document.getElementById("linkToFirstPage").addEventListener("click", function(event) {
+        event.preventDefault();
+        redirectToFirstPage();
+    });
 
 
 
