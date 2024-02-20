@@ -431,3 +431,156 @@ if (Array.isArray(item_ids)){
 
 
 
+
+
+
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('dragstart', function(e) {
+          e.dataTransfer.setData('text/plain', card.id);
+          document.getElementById('basket').classList.remove('closed-basket');
+          document.getElementById('basket').classList.add('open-basket');
+      });
+  });
+  
+  document.getElementById('basket').addEventListener('dragover', function(e) {
+      e.preventDefault();
+  });
+  
+  var itemIds = []; // Initialize an array to store item IDs
+  
+  document.getElementById('basket').addEventListener('drop', function(e) {
+      e.preventDefault();
+      document.getElementById('basket').classList.remove('open-basket');
+      document.getElementById('basket').classList.add('closed-basket');
+      var data = e.dataTransfer.getData('text/plain');
+      if (data) {
+          var card = document.getElementById(data);
+          card.parentNode.removeChild(card); // Remove the dragged card from the first page
+          itemIds.push(data.replace('draggable', '')); // Store the item ID
+      }
+  });
+
+
+
+
+
+
+  <!-- Update the basket to make it droppable -->
+<div class="container mt-3 mb-3" style="background-color: #f5f5f5;width: 150px;height: 180px;">
+  <div id="basket" class="basket closed-basket droppable"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('dragstart', function(e) {
+      e.dataTransfer.setData('text/plain', card.id);
+      document.getElementById('basket').classList.remove('closed-basket');
+      document.getElementById('basket').classList.add('open-basket');
+      showPopup(); // Show the pop-up when a card is dragged
+  });
+});
+
+// Make the basket droppable
+document.getElementById('basket').addEventListener('dragover', function(e) {
+  e.preventDefault();
+});
+
+// Handle drop event on the basket
+document.getElementById('basket').addEventListener('drop', function(e) {
+  e.preventDefault();
+  document.getElementById('basket').classList.remove('open-basket');
+  document.getElementById('basket').classList.add('closed-basket');
+  var data = e.dataTransfer.getData('text/plain');
+  if (data) {
+      var card = document.getElementById(data);
+      card.parentNode.removeChild(card); // Remove the dragged card from the first page
+  }
+});
+
+// Make the pop-up droppable
+document.getElementById('popup').addEventListener('dragover', function(e) {
+  e.preventDefault();
+});
+
+// Handle drop event on the pop-up
+document.getElementById('popup').addEventListener('drop', function(e) {
+  e.preventDefault();
+  var data = e.dataTransfer.getData('text/plain');
+  if (data) {
+      var card = document.getElementById(data);
+      card.parentNode.removeChild(card); // Remove the dragged card
+      // Hide the pop-up
+      document.getElementById('popup').style.display = 'none';
+  }
+});
+
+// Function to show the pop-up when a card is dragged
+function showPopup() {
+  document.getElementById('popup').style.display = 'block';
+}
+
+
+
+
+
+// Add a global event listener for the drop event on the document
+document.addEventListener('drop', function(e) {
+  e.preventDefault();
+  var data = e.dataTransfer.getData('text/plain');
+  if (data) {
+      var card = document.getElementById(data);
+      card.parentNode.removeChild(card); // Remove the dragged card
+      // Hide the pop-up
+      document.getElementById('popup').style.display = 'none';
+  }
+});
+
+// Function to hide the pop-up
+function hidePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+
+
+
+
+
+
+
+// Handle drop event on the basket
+document.getElementById('basket').addEventListener('drop', function(e) {
+  e.preventDefault();
+  document.getElementById('basket').classList.remove('open-basket');
+  document.getElementById('basket').classList.add('closed-basket');
+  var data = e.dataTransfer.getData('text/plain');
+  if (data) {
+      var card = document.getElementById(data);
+      card.parentNode.removeChild(card); // Remove the dragged card from the first page
+      hidePopup(); // Hide the pop-up when a card is dropped in the basket
+  }
+});
+
+// Handle drop event on the pop-up
+document.getElementById('popup').addEventListener('drop', function(e) {
+  e.preventDefault();
+  var data = e.dataTransfer.getData('text/plain');
+  if (data) {
+      var card = document.getElementById(data);
+      card.parentNode.removeChild(card); // Remove the dragged card
+      hidePopup(); // Hide the pop-up when a card is dropped in the pop-up
+  }
+});
+
+
+

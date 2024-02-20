@@ -157,6 +157,42 @@ p {
 }
 
 
+.popup {
+    display: none;
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+
+/* Modal Content */
+.modal-content {
+    background-color: rgb(226, 220, 162);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    margin: 15% auto; /* 15% from the top and centered */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -172,7 +208,7 @@ p {
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link active" href="">Home</a>
-          <a class="nav-item nav-link" href="#" id="linkToNextPage">Orders</a>
+          <a href="#" id="linkToSecondPage" class="nav-item nav-link" onclick="redirectToSecondPage()">Orders</a>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -285,93 +321,233 @@ p {
         </div>
         {% endif %}
 
-
-
-
+      
       </div>
+
     </div>
 
-    <div class="container mt-3 mb-3" style="background-color: #f5f5f5;width: 150px;height: 180px;">
-      <div id="basket" class="basket closed-basket" droppable="true"></div>
+
+ <!-- Add a pop-up element -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <img src="{% static 'images/basket_open.jfif' %}">
+  </div>
+</div>
+
+
+
+
+
+    <div class="container mt-3 mb-3 pt-1" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+      <h1 class="text-center mt-3" style="font-family: Copperplate, Papyrus, fantasy;">How CRM helps Business ?</h1>
+      <div class="row">
+        
+        <div class="col-sm-3 mb-3">
+          <div class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">Keep opportunities within view</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <button type="button" class="btn" data-toggle="modal" data-target="#myModal1" style="background-color: #dd4b39;">View</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal1" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Keep opportunities within view</h4>
+              </div>
+              <div class="modal-body">
+                <img src="{% static 'images/img200.png' %}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="col-sm-3 mb-3">
+          <div class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">Never miss out on a follow-up</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <button type="button" class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #dd4b39;">View</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal2" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Never miss out on a follow-up</h4>
+              </div>
+              <div class="modal-body">
+                <img src="{% static 'images/img200.png' %}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="col-sm-3 mb-3">
+          <div class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">Effortless communication</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <button type="button" class="btn" data-toggle="modal" data-target="#myModal3" style="background-color: #dd4b39;">View</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal3" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Effortless communication</h4>
+              </div>
+              <div class="modal-body">
+                <img src="{% static 'images/img200.png' %}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="col-sm-3 mb-3">
+          <div class="card" style="background-color: rgba(0, 0, 0, 0.1);border-radius: 20px;">
+            <div class="card-body">
+              <h5 class="card-title">Turn reporting data into money</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <button type="button" class="btn" data-toggle="modal" data-target="#myModal4" style="background-color: #dd4b39;">View</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal4" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Turn reporting data into money</h4>
+              </div>
+              <div class="modal-body">
+                <img src="{% static 'images/img200.png' %}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem. Duis eget ligula quis est faucibus fermentum. Nam vel elit nec odio pulvinar convallis ut a erat. Nullam varius, tortor a tincidunt mattis, velit neque venenatis est, non sollicitudin odio ex ac leo.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+
+      
+      </div>
+  
+
+
+    
+
     </div>
 
 
 
     
-
-
-
-
-
-
     <script>
 
 
+// Function to retrieve card IDs from the first page and redirect to the second page with item_ids
+    function redirectToSecondPage() {
+        var cardIds = [];
+        document.querySelectorAll('.card').forEach(card => {
+            var cardId = card.id.replace('draggable', '');
+            cardIds.push(cardId);
+        });
+        var linkToSecondPage = '{% url "second_page" %}?item_ids=' + cardIds.join(',');
+        window.location.href = linkToSecondPage; // Redirect to the second page with card IDs
+    }
+
+    // Event listener for the link to the second page
+    document.getElementById("linkToSecondPage").addEventListener("click", function(event) {
+        event.preventDefault();
+        redirectToSecondPage();
+    });
 
 
 
-
-
-
-
-
-
-document.querySelectorAll('.card').forEach(card => {
+    document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('text/plain', card.id);
-        document.getElementById('basket').classList.remove('closed-basket');
-        document.getElementById('basket').classList.add('open-basket');
+        document.getElementById('popup').style.display = "block"; // Show the popup
     });
 });
 
-document.getElementById('basket').addEventListener('dragover', function(e) {
+document.getElementById('popup').addEventListener('dragover', function(e) {
     e.preventDefault();
 });
 
-var itemIds = []; // Initialize an array to store item IDs
-
-document.getElementById('basket').addEventListener('drop', function(e) {
+document.getElementById('popup').addEventListener('drop', function(e) {
     e.preventDefault();
-    document.getElementById('basket').classList.remove('open-basket');
-    document.getElementById('basket').classList.add('closed-basket');
+    document.getElementById('popup').style.display = "none"; // Hide the popup
     var data = e.dataTransfer.getData('text/plain');
     if (data) {
         var card = document.getElementById(data);
-        card.parentNode.removeChild(card); // Remove the dragged card from the first page
-        itemIds.push(data.replace('draggable', '')); // Store the item ID
+        card.parentNode.removeChild(card); // Remove the dropped card from the page
     }
 });
 
-document.getElementById("linkToNextPage").addEventListener("click", function() {
-    var itemIdsParam = itemIds.join(','); // Convert the array to a comma-separated string
-    if (itemIdsParam) {
-        window.location.href = 'second_page?item_ids=' + itemIdsParam; // Pass the item IDs as a query parameter
-    } else {
-        window.location.href = 'second_page';
-    }
+document.addEventListener('dragover', function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener('drop', function(e) {
+    e.preventDefault();
+    document.getElementById('popup').style.display = "none"; // Hide the popup
 });
 
 
-function redirectToSecondPage() {
-        var cardIds = [];
-        document.querySelectorAll('.card').forEach(card => {
-            var cardId = card.id.replace('card', '');
-            cardIds.push(cardId);
-        });
-        var linkToFirstPage = '{% url "first_page" %}?item_idf=' + cardIds.join(',');
-        window.location.href = linkToFirstPage; // Redirect to the first page with card IDs
-    }
-
-    // Event listener for the link to the first page
-    document.getElementById("linkToFirstPage").addEventListener("click", function(event) {
-        event.preventDefault();
-        redirectToFirstPage();
-    });
 
 
 
 
 
+   
+
+
+    
 
 
 
@@ -478,10 +654,7 @@ function redirectToSecondPage() {
   
       
   
-      
-            
-  </body>
-  </html>
+    
   
 
     
